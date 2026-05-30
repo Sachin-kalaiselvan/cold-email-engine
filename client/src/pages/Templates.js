@@ -19,7 +19,7 @@ function Templates() {
   const fetchTemplates = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/templates', {
+      const response = await axios.get('/api/templates', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setTemplates(response.data);
@@ -42,7 +42,7 @@ function Templates() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/templates', formData, {
+      await axios.post('/api/templates', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setFormData({ name: '', subject: '', htmlContent: '', brand: 'ingredient-list' });

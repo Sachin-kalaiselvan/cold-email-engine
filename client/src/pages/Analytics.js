@@ -13,7 +13,7 @@ function Analytics() {
   const fetchAnalytics = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/analytics/campaigns', {
+      const response = await axios.get('/api/analytics/campaigns', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCampaignData(response.data);

@@ -14,10 +14,10 @@ function Dashboard() {
     try {
       const token = localStorage.getItem('token');
       const [summaryRes, campaignsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/analytics/summary', {
+        axios.get('/api/analytics/summary', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('http://localhost:5000/api/analytics/campaigns', {
+        axios.get('/api/analytics/campaigns', {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);

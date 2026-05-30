@@ -24,7 +24,7 @@ function Login({ onLogin }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
+      const response = await axios.post('/api/auth/login', formData);
       onLogin(response.data.token, response.data.user);
       navigate('/');
     } catch (err) {

@@ -18,7 +18,7 @@ function Campaigns() {
   const fetchCampaigns = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/campaigns', {
+      const response = await axios.get('/api/campaigns', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setCampaigns(response.data);
@@ -40,7 +40,7 @@ function Campaigns() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:5000/api/campaigns', formData, {
+      await axios.post('/api/campaigns', formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setFormData({ name: '', description: '', brand: 'ingredient-list' });

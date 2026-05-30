@@ -26,7 +26,7 @@ function Register({ onLogin }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await axios.post('/api/auth/register', formData);
       onLogin(response.data.token, response.data.user);
       navigate('/');
     } catch (err) {

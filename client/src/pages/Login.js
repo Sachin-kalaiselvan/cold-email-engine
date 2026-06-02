@@ -4,8 +4,8 @@ import axios from 'axios';
 
 function Login({ onLogin }) {
   const [formData, setFormData] = useState({ 
-    email: 'theingredientlist.co@gmail.com', 
-    password: 'theingredientlist.co@admininfinity' 
+    email: '', 
+    password: '' 
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -24,11 +24,11 @@ function Login({ onLogin }) {
     setLoading(true);
 
     try {
-      const response = await axios.post('/api/auth/login', formData);
+      const response = await axios.post('http://localhost:5000/api/auth/login', formData);
       onLogin(response.data.token, response.data.user);
       navigate('/');
     } catch (err) {
-      setError(err.response?.data?.error || 'Login failed');
+      setError(err.response?.data?.error || 'Login failed. Please check your credentials.');
     } finally {
       setLoading(false);
     }
@@ -53,18 +53,29 @@ function Login({ onLogin }) {
       }}>
         {/* Logo and Brand */}
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          {/* Logo Image */}
-          <img 
-            src="/images/the_ingredient_list_logo.png" 
-            alt="The Ingredient List" 
-            style={{ 
-              maxWidth: '140px', 
-              height: 'auto', 
-              marginBottom: '24px',
-              display: 'block',
-              margin: '0 auto 24px'
-            }} 
-          />
+          {/* Logo Image - Blended with background */}
+          <div style={{
+            width: '140px',
+            height: '140px',
+            margin: '0 auto 24px',
+            background: 'linear-gradient(135deg, #a78bfa 0%, #fb923c 100%)',
+            borderRadius: '20px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '10px',
+            boxShadow: '0 10px 30px rgba(124, 58, 237, 0.2)'
+          }}>
+            <img 
+              src="/images/the_ingredient_list_logo.png" 
+              alt="The Ingredient List" 
+              style={{ 
+                maxWidth: '120px', 
+                height: 'auto',
+                borderRadius: '16px'
+              }} 
+            />
+          </div>
           
           {/* Brand Text */}
           <h1 style={{ 
@@ -131,6 +142,7 @@ function Login({ onLogin }) {
                 boxSizing: 'border-box',
                 fontFamily: 'inherit'
               }}
+              placeholder="theingredientlist.co@gmail.com"
               onFocus={(e) => e.target.style.borderColor = '#7c3aed'}
               onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
               required
@@ -163,6 +175,7 @@ function Login({ onLogin }) {
                 boxSizing: 'border-box',
                 fontFamily: 'inherit'
               }}
+              placeholder="Enter your password"
               onFocus={(e) => e.target.style.borderColor = '#7c3aed'}
               onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
               required
@@ -211,21 +224,6 @@ function Login({ onLogin }) {
             Register here
           </Link>
         </p>
-
-        {/* Test Credentials Info */}
-        <div style={{
-          background: '#f0f4ff',
-          border: '1px solid #ddd6fe',
-          padding: '12px 16px',
-          borderRadius: '8px',
-          marginTop: '24px',
-          fontSize: '12px',
-          color: '#6b7280'
-        }}>
-          <strong style={{ color: '#1f2937' }}>🔓 Demo Credentials:</strong>
-          <div style={{ marginTop: '4px' }}>📧 theingredientlist.co@gmail.com</div>
-          <div>🔑 theingredientlist.co@admininfinity</div>
-        </div>
       </div>
     </div>
   );

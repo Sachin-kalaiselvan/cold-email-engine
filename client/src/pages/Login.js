@@ -41,12 +41,12 @@ function Login({ onLogin }) {
       display: 'flex', 
       alignItems: 'center', 
       justifyContent: 'center',
-      fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif'
+      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
     }}>
       <div style={{ 
         background: 'white', 
         borderRadius: '16px', 
-        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)', 
+        boxShadow: '0 25px 50px rgba(0, 0, 0, 0.25)', 
         padding: '48px 40px', 
         width: '100%', 
         maxWidth: '480px'
@@ -55,55 +55,31 @@ function Login({ onLogin }) {
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           {/* Logo Image */}
           <img 
-            src="https://i.imgur.com/YOUR_IMAGE_URL.png" 
+            src="/images/the_ingredient_list_logo.png" 
             alt="The Ingredient List" 
             style={{ 
-              maxWidth: '120px', 
+              maxWidth: '140px', 
               height: 'auto', 
-              marginBottom: '20px',
+              marginBottom: '24px',
               display: 'block',
-              margin: '0 auto 20px'
+              margin: '0 auto 24px'
             }} 
           />
           
-          {/* Brand Text - Matching Style */}
-          <div style={{ marginBottom: '8px' }}>
-            <span style={{ 
-              fontSize: '14px', 
-              fontWeight: '500',
-              letterSpacing: '3px',
-              color: '#7c3aed',
-              textTransform: 'uppercase'
-            }}>
-              THE
-            </span>
-          </div>
-          
+          {/* Brand Text */}
           <h1 style={{ 
-            fontSize: '42px', 
+            fontSize: '28px', 
             fontWeight: '700',
             color: '#1f2937',
-            margin: '0 0 8px 0',
-            letterSpacing: '2px',
-            fontFamily: 'Georgia, serif'
+            margin: '0',
+            letterSpacing: '1px'
           }}>
-            INGREDIENT
+            The Ingredient List
           </h1>
           
-          <div style={{ 
-            fontSize: '20px', 
-            fontWeight: '400',
-            letterSpacing: '4px',
-            color: '#a78bfa',
-            margin: '0',
-            fontFamily: 'Georgia, serif'
-          }}>
-            — LIST —
-          </div>
-
           <p style={{ 
             color: '#6b7280', 
-            marginTop: '16px',
+            marginTop: '8px',
             fontSize: '14px',
             fontWeight: '500'
           }}>
@@ -120,9 +96,10 @@ function Login({ onLogin }) {
             padding: '12px 16px', 
             borderRadius: '8px', 
             marginBottom: '24px', 
-            fontSize: '14px'
+            fontSize: '14px',
+            fontWeight: '500'
           }}>
-            {error}
+            ⚠️ {error}
           </div>
         )}
 
@@ -150,7 +127,7 @@ function Login({ onLogin }) {
                 borderRadius: '8px', 
                 fontSize: '14px', 
                 outline: 'none',
-                transition: 'all 0.3s',
+                transition: 'border-color 0.3s',
                 boxSizing: 'border-box',
                 fontFamily: 'inherit'
               }}
@@ -182,7 +159,7 @@ function Login({ onLogin }) {
                 borderRadius: '8px', 
                 fontSize: '14px', 
                 outline: 'none',
-                transition: 'all 0.3s',
+                transition: 'border-color 0.3s',
                 boxSizing: 'border-box',
                 fontFamily: 'inherit'
               }}
@@ -238,16 +215,16 @@ function Login({ onLogin }) {
         {/* Test Credentials Info */}
         <div style={{
           background: '#f0f4ff',
-          border: '1px solid #e5e7eb',
+          border: '1px solid #ddd6fe',
           padding: '12px 16px',
           borderRadius: '8px',
           marginTop: '24px',
           fontSize: '12px',
           color: '#6b7280'
         }}>
-          <strong style={{ color: '#1f2937' }}>Test Credentials (Pre-filled):</strong>
-          <div>Email: theingredientlist.co@gmail.com</div>
-          <div>Password: theingredientlist.co@admininfinity</div>
+          <strong style={{ color: '#1f2937' }}>🔓 Demo Credentials:</strong>
+          <div style={{ marginTop: '4px' }}>📧 theingredientlist.co@gmail.com</div>
+          <div>🔑 theingredientlist.co@admininfinity</div>
         </div>
       </div>
     </div>

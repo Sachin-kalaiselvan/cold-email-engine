@@ -1,6 +1,6 @@
 #!/bin/bash
 # Start backend on port 3001
-node server.js &
+PORT=3001 node server.js &
 
 # Wait for backend to start
 sleep 2
